@@ -22,7 +22,14 @@ export default function Navbar({ activePage, setActivePage }) {
         ))}
       </div>
       <div className="nav-actions">
-        <button className="btn-login">Login</button>
+        <a 
+          href="https://www.fifa.com/en/tickets" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="btn-login"
+        >
+          Get Tickets
+        </a>
       </div>
     </nav>
   );

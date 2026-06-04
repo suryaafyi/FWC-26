@@ -252,6 +252,9 @@ body.dark .nav-links a {
 }
 
 .btn-login {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
   font-family: var(--font-sub);
   font-size: 12px;
   font-weight: 700;
