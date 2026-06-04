@@ -171,6 +171,15 @@ export default function MatchesList({ matches, onSelectMatch, viewMode }) {
         const activeDate = activeDates[groupName];
 
         const matchesInGroup = groupedGroups[groupName];
+        const displayedMatches = matchesInGroup.filter((match) => {
+          if (isGroupStage && activeDate) {
+            const matchD = new Date(match.date);
+            const dateStr1 = matchD.toLocaleDateString('en-CA', { timeZone: 'America/Chicago' });
+            const dateStr2 = activeDate.toLocaleDateString('en-CA', { timeZone: 'America/Chicago' });
+            return dateStr1 === dateStr2;
+          }
+          return true;
+        });
 
         return (
           <section key={groupName} className="mb-16">
@@ -198,13 +207,7 @@ export default function MatchesList({ matches, onSelectMatch, viewMode }) {
 
             {viewMode === 'grid' ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {matchesInGroup.map((match, idx) => {
-                  let isMatchingDate = true;
-                  if (isGroupStage && activeDate) {
-                    const matchD = new Date(match.date);
-                    isMatchingDate = matchD.toDateString() === activeDate.toDateString();
-                  }
-
+                {displayedMatches.map((match, idx) => {
                   const kickoff = new Date(match.date);
                   const isLive = match.status === 'live';
                   const isFinished = match.status === 'ft';
@@ -215,9 +218,9 @@ export default function MatchesList({ matches, onSelectMatch, viewMode }) {
                       className={`group relative h-[280px] rounded-[16px] overflow-hidden border border-[#E0E0E0] shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300 cursor-pointer ${isLive ? 'pulse-red-glow' : ''
                         }`}
                       style={{
-                        opacity: isMatchingDate ? 1 : 0.3,
-                        transform: isMatchingDate ? 'scale(1)' : 'scale(0.97)',
-                        pointerEvents: isMatchingDate ? 'auto' : 'none',
+                        opacity: 1,
+                        transform: 'scale(1)',
+                        pointerEvents: 'auto',
                         transition: 'opacity 200ms ease-out, transform 200ms ease-out',
                         animation: animateCards ? 'flag-fade-in 300ms ease-out forwards' : 'none',
                         animationDelay: `${idx * 40}ms`
@@ -329,13 +332,7 @@ export default function MatchesList({ matches, onSelectMatch, viewMode }) {
             ) : (
               /* List View Layout */
               <div className="flex flex-col gap-4">
-                {matchesInGroup.map((match) => {
-                  let isMatchingDate = true;
-                  if (isGroupStage && activeDate) {
-                    const matchD = new Date(match.date);
-                    isMatchingDate = matchD.toDateString() === activeDate.toDateString();
-                  }
-
+                {displayedMatches.map((match) => {
                   const isLive = match.status === 'live';
                   const isFinished = match.status === 'ft';
                   const kickoff = new Date(match.date);
@@ -345,9 +342,9 @@ export default function MatchesList({ matches, onSelectMatch, viewMode }) {
                       key={match.id}
                       className="bg-white border border-[#E0E0E0] rounded-xl p-4 flex items-center justify-between shadow-sm hover:shadow-md transition-all cursor-pointer"
                       style={{
-                        opacity: isMatchingDate ? 1 : 0.3,
-                        transform: isMatchingDate ? 'scale(1)' : 'scale(0.97)',
-                        pointerEvents: isMatchingDate ? 'auto' : 'none',
+                        opacity: 1,
+                        transform: 'scale(1)',
+                        pointerEvents: 'auto',
                         transition: 'opacity 200ms ease-out, transform 200ms ease-out'
                       }}
                       onClick={() => onSelectMatch(match)}

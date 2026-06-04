@@ -24,7 +24,7 @@ export default function MatchesTicker() {
     // LIVE_TOURNAMENT
     // Derive from matchesData
     const todayStr = now.toDateString();
-    
+
     matchesData.forEach(m => {
       const status = getMatchStatus(m);
       const mDate = new Date(m.date);
@@ -105,7 +105,7 @@ export default function MatchesTicker() {
   };
 
   return (
-    <div className="h-[40px] bg-black text-white flex items-center overflow-hidden z-50 relative uppercase text-[12px] font-bold tracking-wider">
+    <div className="h-[40px] bg-black text-white flex items-center overflow-hidden sticky top-[60px] z-40 uppercase text-[12px] font-bold tracking-wider">
       <div className="ticker-scroll whitespace-nowrap flex gap-12 px-6">
         {displayItems.map((item, index) => (
           <span key={index} style={{ display: 'inline-flex', alignItems: 'center' }}>

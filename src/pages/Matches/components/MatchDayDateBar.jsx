@@ -11,16 +11,18 @@ export default function MatchDayDateBar({ dates, activeDate, onChange }) {
   }, []);
 
   const getDayName = (date) => {
-    return date.toLocaleDateString('en-US', { weekday: 'short' }).toUpperCase();
+    return date.toLocaleDateString('en-US', { weekday: 'short', timeZone: 'America/Chicago' }).toUpperCase();
   };
 
   const getMonthName = (date) => {
-    return date.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
+    return date.toLocaleDateString('en-US', { month: 'short', timeZone: 'America/Chicago' }).toUpperCase();
   };
 
   const isSameDay = (d1, d2) => {
     if (!d1 || !d2) return false;
-    return d1.toDateString() === d2.toDateString();
+    const s1 = d1.toLocaleDateString('en-CA', { timeZone: 'America/Chicago' });
+    const s2 = d2.toLocaleDateString('en-CA', { timeZone: 'America/Chicago' });
+    return s1 === s2;
   };
 
   return (
@@ -51,7 +53,7 @@ export default function MatchDayDateBar({ dates, activeDate, onChange }) {
           
           const dayName = getDayName(dateObj);
           const monthName = getMonthName(dateObj);
-          const dateNum = dateObj.getDate();
+          const dateNum = new Intl.DateTimeFormat('en-US', { day: 'numeric', timeZone: 'America/Chicago' }).format(dateObj);
 
           return (
             <div

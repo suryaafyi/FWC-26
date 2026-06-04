@@ -85,39 +85,40 @@ export default function Matches() {
     <div className="bg-white min-h-screen text-[#1a1c1c]" style={{ fontFamily: "'Noto Sans', sans-serif" }}>
       {/* Ticker on top */}
       <MatchesTicker />
+      <div className="pt-[40px]">
+        {/* Page Header */}
+        <header className="max-w-[1440px] mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+          <div className="stagger-fade-up">
+            <span className="bg-[#E8192C] text-white px-3 py-1 text-[11px] font-black rounded-sm mb-4 inline-block tracking-widest uppercase">
+              {isPreTournament ? 'Pre-Tournament Draw' : 'Tournament Live'}
+            </span>
+            <h1 className="font-fwc text-[80px] leading-[0.9] text-black mb-2 uppercase">
+              Matches
+            </h1>
+            <p className="text-xl text-gray-500 font-medium">104 Matches · 16 Cities · 48 Nations</p>
+          </div>
 
-      {/* Page Header */}
-      <header className="max-w-[1440px] mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
-        <div className="stagger-fade-up">
-          <span className="bg-[#E8192C] text-white px-3 py-1 text-[11px] font-black rounded-sm mb-4 inline-block tracking-widest uppercase">
-            {isPreTournament ? 'Pre-Tournament Draw' : 'Tournament Live'}
-          </span>
-          <h1 className="font-fwc text-[80px] leading-[0.9] text-black mb-2 uppercase">
-            Matches
-          </h1>
-          <p className="text-xl text-gray-500 font-medium">104 Matches · 16 Cities · 48 Nations</p>
-        </div>
-
-        {/* Current status alert box */}
-        <div className="bg-[#FFD700] p-6 border-l-8 border-black stagger-fade-up">
-          <span className="text-[11px] font-black uppercase tracking-widest block mb-1">
-            Current Status
-          </span>
-          <p className="text-lg font-black uppercase leading-tight">
-            {isPreTournament ? (
-              <>
-                Tournament Begins:<br />
-                June 11, 2026
-              </>
-            ) : (
-              <>
-                Tournament Active:<br />
-                LIVE Matches Streaming Now
-              </>
-            )}
-          </p>
-        </div>
-      </header>
+          {/* Current status alert box */}
+          <div className="bg-[#FFD700] p-6 border-l-8 border-black stagger-fade-up">
+            <span className="text-[11px] font-black uppercase tracking-widest block mb-1">
+              Current Status
+            </span>
+            <p className="text-lg font-black uppercase leading-tight">
+              {isPreTournament ? (
+                <>
+                  Tournament Begins:<br />
+                  June 11, 2026
+                </>
+              ) : (
+                <>
+                  Tournament Active:<br />
+                  LIVE Matches Streaming Now
+                </>
+              )}
+            </p>
+          </div>
+        </header>
+      </div>
 
       {/* Stats Dashboard Overview */}
       <div className="max-w-[1440px] mx-auto px-6 mb-4 stagger-fade-up">
@@ -131,11 +132,10 @@ export default function Matches() {
             {phaseTabs.map((tab) => (
               <button
                 key={tab.id}
-                className={`whitespace-nowrap pb-4 transition-colors ${
-                  activePhase === tab.id
-                    ? 'text-black border-b-4 border-[#E8192C]'
-                    : 'text-gray-400 hover:text-black'
-                }`}
+                className={`whitespace-nowrap pb-4 transition-colors ${activePhase === tab.id
+                  ? 'text-black border-b-4 border-[#E8192C]'
+                  : 'text-gray-400 hover:text-black'
+                  }`}
                 onClick={() => setActivePhase(tab.id)}
               >
                 {tab.label}
