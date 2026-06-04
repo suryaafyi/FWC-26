@@ -458,7 +458,7 @@ export default function Teams() {
               <h3 className="font-fwc text-[24px] text-tertiary mb-lg flex items-center gap-3">
                 <span className="w-8 h-1 bg-tertiary"></span> GOALKEEPERS
               </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-gutter">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-gutter">
                 {getSquadForTeam(selectedTeam).goalkeepers.map((player, idx) => (
                   <PaniniCard key={player.name} player={player} delay={`${0.1 + idx * 0.1}s`} />
                 ))}
@@ -470,7 +470,7 @@ export default function Teams() {
               <h3 className="font-fwc text-[24px] text-tertiary mb-lg flex items-center gap-3">
                 <span className="w-8 h-1 bg-tertiary"></span> DEFENDERS
               </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-gutter">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-gutter">
                 {getSquadForTeam(selectedTeam).defenders.map((player, idx) => (
                   <PaniniCard key={player.name} player={player} delay={`${0.2 + idx * 0.1}s`} />
                 ))}
@@ -482,7 +482,7 @@ export default function Teams() {
               <h3 className="font-fwc text-[24px] text-tertiary mb-lg flex items-center gap-3">
                 <span className="w-8 h-1 bg-tertiary"></span> MIDFIELDERS
               </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-gutter">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-gutter">
                 {getSquadForTeam(selectedTeam).midfielders.map((player, idx) => (
                   <PaniniCard key={player.name} player={player} delay={`${0.4 + idx * 0.1}s`} />
                 ))}
@@ -494,7 +494,7 @@ export default function Teams() {
               <h3 className="font-fwc text-[24px] text-tertiary mb-lg flex items-center gap-3">
                 <span className="w-8 h-1 bg-tertiary"></span> FORWARDS
               </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-gutter">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-gutter">
                 {getSquadForTeam(selectedTeam).forwards.map((player, idx) => (
                   <PaniniCard key={player.name} player={player} delay={`${0.6 + idx * 0.1}s`} />
                 ))}
