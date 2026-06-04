@@ -83,7 +83,7 @@ export default function Hero({ setActivePage }) {
       {/* Hero Content */}
       <div className="hero-content">
         <div className="flex flex-col items-start">
-          
+
           {/* PRE_TOURNAMENT Pill */}
           {/* <!-- PRE_TOURNAMENT --> */}
           {isPreTournament && (
@@ -180,7 +180,9 @@ export default function Hero({ setActivePage }) {
               /* PRE_TOURNAMENT CTAs */
               /* <!-- PRE_TOURNAMENT --> */
               <>
-                <button className="btn-hero btn-solid">GET TICKETS</button>
+                <button className="btn-hero btn-solid"
+                  onClick={() => window.open('https://www.fifa.com/en/tickets', '_blank')}
+                >GET TICKETS</button>
                 <button className="btn-hero btn-outline" onClick={() => setActivePage && setActivePage('Groups')}>EXPLORE GROUPS</button>
               </>
               /* <!-- /PRE_TOURNAMENT --> */
@@ -209,12 +211,12 @@ export default function Hero({ setActivePage }) {
             </div>
             <div className="next-match-teams">
               <div className="next-team-item">
-                <img 
-                  src="https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/mx.svg" 
-                  alt="Mexico" 
-                  width="40" 
-                  height="24" 
-                  className="flag-img" 
+                <img
+                  src="https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/mx.svg"
+                  alt="Mexico"
+                  width="40"
+                  height="24"
+                  className="flag-img"
                   style={{ border: '1px solid rgba(255,255,255,0.1)', objectFit: 'cover' }}
                 />
                 <span className="next-team-name">MEX</span>
@@ -222,12 +224,12 @@ export default function Hero({ setActivePage }) {
               <span className="next-vs">VS</span>
               <div className="next-team-item">
                 <span className="next-team-name">RSA</span>
-                <img 
-                  src="https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/za.svg" 
-                  alt="South Africa" 
-                  width="40" 
-                  height="24" 
-                  className="flag-img" 
+                <img
+                  src="https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/za.svg"
+                  alt="South Africa"
+                  width="40"
+                  height="24"
+                  className="flag-img"
                   style={{ border: '1px solid rgba(255,255,255,0.1)', objectFit: 'cover' }}
                 />
               </div>
@@ -247,12 +249,12 @@ export default function Hero({ setActivePage }) {
             </div>
             <div className="next-match-teams">
               <div className="next-team-item">
-                <img 
-                  src="https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/us.svg" 
-                  alt="USA" 
-                  width="40" 
-                  height="24" 
-                  className="flag-img" 
+                <img
+                  src="https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/us.svg"
+                  alt="USA"
+                  width="40"
+                  height="24"
+                  className="flag-img"
                   style={{ border: '1px solid rgba(255,255,255,0.1)', objectFit: 'cover' }}
                 />
                 <span className="next-team-name">USA</span>
@@ -260,12 +262,12 @@ export default function Hero({ setActivePage }) {
               <span className="next-vs">VS</span>
               <div className="next-team-item">
                 <span className="next-team-name">CAN</span>
-                <img 
-                  src="https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/ca.svg" 
-                  alt="Canada" 
-                  width="40" 
-                  height="24" 
-                  className="flag-img" 
+                <img
+                  src="https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/4x3/ca.svg"
+                  alt="Canada"
+                  width="40"
+                  height="24"
+                  className="flag-img"
                   style={{ border: '1px solid rgba(255,255,255,0.1)', objectFit: 'cover' }}
                 />
               </div>
